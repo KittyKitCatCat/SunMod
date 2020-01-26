@@ -15,8 +15,8 @@ import net.minecraftforge.registries.ObjectHolder;
 @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
 public class TERegister
 {
-    @ObjectHolder("examplemod:sunFurnaceEntity")
-    public static TileEntityType<?> sunFurnaceEntity;
+    @ObjectHolder("examplemod:sun_furnace_tile_entity")
+    public static TileEntityType<?> sun_furnace_tile_entity;
 
 
     @SubscribeEvent
@@ -24,7 +24,7 @@ public class TERegister
     {
         e.getRegistry().registerAll
         (
-            TileEntityType.Builder.create((Supplier<TileEntity>) SunFurnaceEntity::new, RegistryEvents.sunFurance).build(null).setRegistryName("sunFurnaceEntity")
+            TileEntityType.Builder.create((Supplier<TileEntity>) SunFurnaceEntity::new, RegistryEvents.sun_furance).build(null).setRegistryName("sun_furnace_tile_entity")
         );
     }
 }

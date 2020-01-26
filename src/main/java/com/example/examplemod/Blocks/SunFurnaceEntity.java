@@ -20,6 +20,6 @@ public class SunFurnaceEntity extends TileEntity
 
     public SunFurnaceEntity()
     {
-        super(TERegister.sunFurnaceEntity);
+        super(TERegister.sun_furnace_tile_entity);
     }
 }

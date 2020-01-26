@@ -45,12 +45,13 @@ public class ExampleMod
     {
 
         public static Block example_block;
-        public static Block sunFurance;
+        public static Block sun_furance;
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistryEvent)
         {
             IForgeRegistry<Block> registry = blockRegistryEvent.getRegistry();
 
+            sun_furance = registerBlock(registry, new SunFurnace(Block.Properties.from(Blocks.FURNACE)), "sun_furance");
             example_block = registerBlock(registry, new SunFurnace(Block.Properties.from(Blocks.GLASS)), "example_block");
         }
 
@@ -70,7 +71,7 @@ public class ExampleMod
             final IForgeRegistry<Item> registry = itemRegistryEvent.getRegistry();
             registry.registerAll(
                     example_item = setup(new BlockItem(example_block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "example_item"),
-                    test = setup(new BlockItem(example_block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "test")
+                    test = setup(new BlockItem(sun_furance, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "test")
             );
         }
         @Nonnull

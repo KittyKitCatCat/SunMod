@@ -13,22 +13,24 @@ import net.minecraft.world.World;
 
 public class SunFurnace extends Block
 {
-    public SunFurnace(Properties properties) 
+    public SunFurnace(Properties properties)
     {
         super(properties);
     }
 
     @Override
-    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit) 
+    public boolean onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity player, Hand handIn, BlockRayTraceResult hit)
     {
         TileEntity entity = worldIn.getTileEntity(pos);
         SunFurnaceEntity sunentity;
-        if(entity instanceof SunFurnaceEntity) sunentity = (SunFurnaceEntity) entity;
-        else return false;
+        if (entity instanceof SunFurnaceEntity)
+            sunentity = (SunFurnaceEntity) entity;
+        else
+            return false;
 
-        if(sunentity != null)
+        if (sunentity != null)
         {
-            if(player.getHeldItem(handIn) != null)
+            if (player.getHeldItem(handIn) != null)
             {
                 sunentity.bottomSlot = player.getHeldItem(handIn);
                 player.setHeldItem(handIn, null);
@@ -55,4 +57,3 @@ public class SunFurnace extends Block
         return new SunFurnaceEntity();
     }
 }
-
