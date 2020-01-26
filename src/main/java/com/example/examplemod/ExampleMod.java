@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import com.example.examplemod.Blocks.SunFurnace;
 import com.google.common.base.Preconditions;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -44,12 +45,13 @@ public class ExampleMod
     {
 
         public static Block example_block;
+        public static Block sunFurance;
         @SubscribeEvent
         public static void registerBlocks(final RegistryEvent.Register<Block> blockRegistryEvent)
         {
             IForgeRegistry<Block> registry = blockRegistryEvent.getRegistry();
 
-            example_block = registerBlock(registry, new Block(Block.Properties.from(Blocks.GLASS)), "example_block");
+            example_block = registerBlock(registry, new SunFurnace(Block.Properties.from(Blocks.GLASS)), "example_block");
         }
 
         private static <T extends Block> T registerBlock(IForgeRegistry<Block> registry, T newBlock, String name)
@@ -61,12 +63,14 @@ public class ExampleMod
         }
 
         public static Item example_item;
+        public static Item test;
         @SubscribeEvent
         public static void registerItems(final RegistryEvent.Register<Item> itemRegistryEvent)
         {
             final IForgeRegistry<Item> registry = itemRegistryEvent.getRegistry();
             registry.registerAll(
-                    example_item = setup(new BlockItem(example_block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "example_item")
+                    example_item = setup(new BlockItem(example_block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "example_item"),
+                    test = setup(new BlockItem(example_block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)), "test")
             );
         }
         @Nonnull
